@@ -32,8 +32,9 @@ function getDay(date, lang) {
 // Вид должен быть такой 12:02(часы и минуты), то есть если у вас одно число на одном из
 // компонентов, то добавляем 0 перед ним
 function formatTime(date) {
-  return `${('0' + date.getHours()).slice(-2)}:${(
-    '0' + date.getMinutes()
+  let num = 0;
+  return `${(num.toString() + date.getHours()).slice(-2)}:${(
+    num.toString() + date.getMinutes()
   ).slice(-2)}`;
 }
 
