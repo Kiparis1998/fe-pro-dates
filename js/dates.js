@@ -23,19 +23,15 @@ function getDay(date, lang) {
       6: 'Суббота',
     },
   };
-  return lang === 'en'
-    ? dayNames.en[date.getDay()]
-    : dayNames.ru[date.getDay()];
+  return dayNames[lang][date.getDay()];
 }
 
 // Принимает объект даты, и должно вернуть компоненты даты в виде строки.
 // Вид должен быть такой 12:02(часы и минуты), то есть если у вас одно число на одном из
 // компонентов, то добавляем 0 перед ним
 function formatTime(date) {
-  let num = 0;
-  return `${(num.toString() + date.getHours()).slice(-2)}:${(
-    num.toString() + date.getMinutes()
-  ).slice(-2)}`;
+  const stringDate = (item) => item.toString().padStart(2, '0');
+  return `${stringDate(date.getHours())}:${stringDate(date.getMinutes())}`;
 }
 
 /*
